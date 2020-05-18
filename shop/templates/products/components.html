@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container mt-5">
+       
+    <div class="container">
+    <div class="row">
+    {% for mb in cats %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + mb.image_1)}}" class="card-img-top" alt="{{mb.name}}" height="200" width="200">
+            <div class="card-body">
+              <h5 class="text-center">{{mb.name}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{{url_for(mb.url)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('createBuild_3', id=mb.id,build_id=build_id)}}" method="post">
+                  <input type="hidden" name="cpu_id" value="{{mb.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Select</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock content %}

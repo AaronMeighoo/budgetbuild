@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<!---============== END OF NAV BAR ==================-->
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6" id="b_image">
+            <img src="{{url_for('static',filename='images/' + product.image_1)}}" alt="{{product.name}}" width="400" height="400">
+        </div>
+        <div class="col-md-6">
+            <h4> {{product.name}} </h4>
+            <hr>
+            <p><h6>Model:</h6> {{product.model}}</p>
+            <hr>
+            <p><h6>Series: </h6> {{product.series}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Type:</h6> {{product.PSU_type}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Max Power:</h6> {{product.max_power}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Fans:</h6> {{product.fans}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Main Connector:</h6> {{product.Main_Connector}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Rail 12v:</h6> {{product.rail_12v}} </p>
+            <hr>
+            <hr>
+            <p><h6>PCI Express Connector:</h6> {{product.PCI_Express_Connector}}  </p>
+            <hr>
+            <hr>
+            <p><h6>SATA Power Connector:</h6> {{product.SATA_Power_Connector}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Audio Channels:</h6> {{product.audio_channels}}  </p>
+            <hr>
+            <hr>
+            <p><h6>SLI:</h6> {{product.SLI}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Modular:</h6> {{product.Modular}}  </p>
+            <hr>
+            <p><h6>CrossFire:</h6> {{product.CrossFire}}  </p>
+            <hr>
+            <p><h6>Efficiency:</h6> {{product.Efficiency}}  </p>
+            <hr>
+            <p><h6>Energy Efficient:</h6> {{product.Energy_Efficient}}  </p>
+            <hr>
+            <p><h6>Input Voltage:</h6> {{product.Input_Voltage}}  </p>
+            <hr>
+            <p><h6>Input Frequency Range:</h6> {{product.Input_Frequency_Range}}  </p>
+            <hr>
+            <p><h6>Input Current:</h6> {{product.Input_Current}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Output:</h6> {{product.Output}}  </p>
+            <hr>
+            <hr>
+            <p><h6>MTBF:</h6> {{product.MTBF}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Dimensions:</h6> {{product.Dimensions}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Max PSU Length:</h6> {{product.Max_PSU_Length}}  </p>
+            <hr>
+            <hr>
+            <p><h6>Connectors: </h6> {{product.connectors}}</p>
+            <hr>
+            <hr>
+            <p><h6>Weight: </h6> {{product.Weight}}</p>
+            <hr>
+            <p><h6>Date Released:</h6> {{product.date_released}}  </p>
+            <hr>
+            <b>Product discription</b>
+            <p>{{product.features}}</p>
+
+        
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12" id="s_image">
+            <img src="{{url_for('static',filename='images/'+ product.image_1)}}" alt="{{product.name}}" width="100" height="100">
+            <img src="{{url_for('static',filename='images/'+ product.image_2)}}" alt="{{product.name}}" width="100" height="100" class="ml-5">
+            <img src="{{url_for('static',filename='images/'+ product.image_3)}}" alt="{{product.name}}" width="100" height="100" class="ml-5">
+        </div>
+    </div>
+   
+</div>
+
+<script>
+   var b_image = document.getElementById('b_image');
+   var s_image = document.getElementById('s_image').getElementsByTagName('img');
+    for(var i = 0; i < s_image.length; i++){
+
+        s_image[i].addEventListener('click', full_image);
+    }
+    function full_image(){
+        var ImageSRC = this.getAttribute('src');
+        b_image.innerHTML = "<img src=" + ImageSRC + " width='400' height='400'>";
+    }
+</script>
+{% endblock content %}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/css.css')}}">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Shop</title>
+    {% endif %}
+  </head>
+  <body>
+    {% block content %}
+
+
+    {% endblock content %}
+    <script src="{{url_for('static', filename='js/jquery-3.4.1.slim.min.js')}}" ></script>
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  </body>
+  
+<div class="container-fluid mt-5 text-white bg-dark">
+  <footer> 
+    <h6 class= "text-center mb-5"> Helping you build your dream PC</h6>
+    <a href="about.html">About</a>
+    <p class="">Disclaimer: This website has been developed by students of U.W.I. and is not yet meant for commercial use</p>
+    <p class="text-bottom">&#169; Copyright 2020</p>
+  </footer>
+</div>
+  
+</html>

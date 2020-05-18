@@ -1,0 +1,190 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="container">
+
+    
+
+    <!--================= END OF BARNDS FORLOOP ================-->
+          <div class="row">
+          {% if mb %}
+         <h5>MotherBoards</h5>
+        {% for product in mb %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+ 
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="row">
+         
+        {% for product in rams %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+         
+        {% for product in cpus %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+         
+        {% for product in gpus %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+      </div>
+        <!--========= END ELSE IF ===============-->
+        <div class="row">
+         
+        {% for product in cases %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+         
+        {% for product in psus %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+         
+        {% for product in water_cooling %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+      </div>
+            <div class="row">
+         
+        {% for product in hdds %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+       <div class="row">
+         
+        {% for product in air_coolers %}
+      <div class="col-md-3 mt-4">
+        <div class="card">
+            <img src="{{url_for('static', filename='images/' + product.image_1)}}" class="card-img-top" alt="{{product.name}}" height="200" width="200">
+            <div class="card-footer">
+                <a href="{{url_for(product.single_url,id=product.id)}}" class="float-left btn btn-sm btn-primary">Details</a>
+                <form action="{{url_for('AddCart')}}" method="post">
+                  <input type="hidden" name="product_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">Add to Cart</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+            </div>
+        </div>
+      </div>
+        {% endfor %}
+      </div>
+
+
+
+
+    </div>
+</div>
+{% endblock content %}

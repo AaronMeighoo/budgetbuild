@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{url_for('admin')}}">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('admin')}}">product <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('brands')}}">brand</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('categories')}}">catgory</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add products
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{{url_for('addproduct')}}">Add product</a>
+                <a class="dropdown-item" href="{{url_for('addbrand')}}">add brand</a>
+                <a class="dropdown-item" href="{{url_for('addcat')}}">add category</a>
+                <a class="dropdown-item" href="{{url_for('addCPU_type')}}">add CPU_type</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</div>
+
+<!--==========END NAVBAR ==============-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+            <div class="col-md-6">
+                {% include '_messages.html' %}
+                {% if CPU_types %}
+                <div class="text-center  p-2 h3 mb-3">{% if updateCPU_type %} Update {% else %}Add a {% endif %} CPU_type</div>     
+                <form method=post>
+                <div>
+                 <form action="" method="post">
+                     {% if updateCPU_type %}
+                     <input type="text" name="CPU_type" class="form-control" value="{{updateCPU_type.name}}">
+                     <input type="submit" value="update CPU_type" class="btn btn-info mt-3">
+                     {% else %}
+                     <input type="text" name="CPU_type" class="form-control">
+                     <input type="submit" value="Add a CPU_type" class="btn btn-info mt-3">
+                     {% endif %}
+                     
+                 </form>
+                </div>
+                </form>
+                {% else %}
+                <div class="text-center  p-2 h3 mb-3">{% if updatecat %}Upade {% else %}Add a {% endif %}CPU_type</div>     
+                <form method=post>
+                <div>
+                 <form action="" method="post">
+                     {% if updatecat %}
+                     <input type="text" name="CPU_type" class="form-control" value="{{updateCPU_type.name}}">
+                     <input type="submit" value="Update CPU_type" class="btn btn-info mt-3">
+                     {% else %}
+                     <input type="text" name="CPU_type" class="form-control">
+                     <input type="submit" value="Add a CPU_type" class="btn btn-info mt-3">
+                     {% endif %}
+                     
+                 </form>
+                </div>
+                </form>
+                {% endif %}
+            </div>
+      <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock content %}

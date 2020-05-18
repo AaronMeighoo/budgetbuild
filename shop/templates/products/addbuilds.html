@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{url_for('admin')}}">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('admin')}}">product <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('brands')}}">brand</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('categories')}}">catgory</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('RAMs')}}">RAM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('CPUs')}}">CPU</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('GPUs')}}">GPU</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Cases')}}">Cases</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add Items
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{{url_for('addproduct')}}">Add product</a>
+                <a class="dropdown-item" href="{{url_for('ADDCPU')}}">Add CPU</a>
+                <a class="dropdown-item" href="{{url_for('ADDRAM')}}">Add RAM</a>
+                <a class="dropdown-item" href="{{url_for('ADD_GRAPHICCARD')}}">Add Graphic Card</a>
+                <a class="dropdown-item" href="{{url_for('ADD_CASE')}}">Add Case</a>
+                <a class="dropdown-item" href="{{url_for('addbrand')}}">add brand</a>
+                <a class="dropdown-item" href="{{url_for('addcat')}}">add category</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</div>
+
+<!--==========END NAVBAR ==============-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="text-center bg-info p-2 h4">Add a Build</div>
+                {% from "_formhelpers.html" import render_field %}
+                <form method="POST" enctype="multipart/form-data">
+                <div>
+                    {{ render_field(form.name, class="form-control") }}
+
+                    <label for="processor">Add a Processor</label>
+                    <select name="processor" id="processor_id" class="form-control" required>
+                     <option value=""> Select A Processor</option>
+                     {% for processor in processors %}
+                     <option value="{{processor.id}}">{{processor.name}}</option>
+                     {% endfor %}
+                    </select>
+                    <label for="memory">Add RAM</label>
+                    <select name="memory" id="memory_id" class="form-control" required>
+                     <option value=""> Select A RAM</option>
+                     {% for ram in memorys %}
+                     <option value="{{ram.id}}">{{ram.name}}</option>
+                     {% endfor %}
+                    </select>
+                    <label for="storage">Add Storage</label>
+                    <select name="storage" id="storage_id" class="form-control" required>
+                     <option value=""> Select A Storage</option>
+                     {% for storage in storages %}
+                     <option value="{{storage.id}}">{{storage.name}}</option>
+                     {% endfor %}
+                    </select>
+                    <label for="psu">Add PSU</label>
+                    <select name="psu" id="psu_id" class="form-control" required>
+                     <option value=""> Select A Power Supply</option>
+                     {% for psu in psus %}
+                     <option value="{{psu.id}}">{{psu.name}}</option>
+                     {% endfor %}
+                    </select>
+                    <label for="graphics">Add GPU</label>
+                    <select name="graphics" id="graphics_id" class="form-control" required>
+                     <option value=""> Select A GPU</option>
+                     {% for gpu in graphicss %}
+                     <option value="{{gpu.id}}">{{gpu.name}}</option>
+                     {% endfor %}
+                    </select>
+                    <label for="motherboard">Add MotherBoard</label>
+                    <select name="motherboard" id="motherboard_id" class="form-control" required>
+                     <option value=""> Select A MotherBoards</option>
+                     {% for mb in motherboards %}
+                     <option value="{{mb.id}}">{{mb.name}}</option>
+                     {% endfor %}
+                    </select>
+                    <label for="category">Add a Air Cooler</label>
+                    <select name="aircooler" id="aircooler" class="form-control" required>
+                     <option value=""> Select A AirCooler</option>
+                     {% for aircooler in aircoolings %}
+                     <option value="{{aircooler.id}}">{{aircooler.name}}</option>
+                     {% endfor %}
+                    </select>
+                    <label for="category">Add a category</label>
+                    <select name="category" id="category" class="form-control" required>
+                     <option value=""> Select A category</option>
+                     {% for category in categories %}
+                     <option value="{{category.id}}">{{category.name}}</option>
+                     {% endfor %}
+                    </select>
+                <div class="container">
+                    <div class="row">
+ 
+                        <div class="col-md-4">{{ render_field(form.image_1) }}</div>
+
+                    </div>
+                </div>
+                <p><input type="submit" value="{% if getproduct %}Update {% else %}Add{% endif %} product" class="btn-outline-info">
+                </form>
+            </div>
+      <div class="col-md-1"></div>
+    </div>
+</div>
+{% endblock content %}

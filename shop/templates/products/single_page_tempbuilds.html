@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+<!---============== END OF NAV BAR ==================-->
+
+<div class="container mt-5">
+    {{build_id}}
+    <div class="row">
+
+        <div class="col-md-6">
+            <h4>Product name: {{product.name}} </h4>
+            <hr>
+            <a href="{{url_for('single_page_cpus', id=product.processor_id)}}">
+            <p><h6>Processor: </h6> {{product.processor.name}}</p>
+            </a>
+            <hr>
+            <a href="{{url_for('single_page_rams', id=product.processor_id)}}">
+            <p><h6>Memory:</h6> {{product.memory.name}}  </p>
+            </a>
+            <hr>
+            <hr>
+            <a href="{{url_for('single_page_HDD', id=product.storage_id)}}">
+            <p><h6>Storage:</h6> {{product.storage.name}}  </p>
+            </a>
+            <hr>
+            <a href="{{url_for('single_page_psus', id=product.psu_id)}}">
+            <p><h6>PSU: </h6> {{product.psu.name}}  </p>
+            </a>
+            <hr>
+            <hr>
+            <a href="{{url_for('single_page_gups', id=product.processor_id)}}">
+            <p><h6> GPU:</h6>GPU: {{product.graphics.name}}  </p>
+            </a>
+            <hr>
+            <hr>
+            <a href="{{url_for('single_page_motherboards', id=product.motherboard_id)}}">
+            <p><h6>Motherboard:</h6> {{product.motherboard.name}}  </p>
+            </a>
+            <hr>
+            <b>Product discription</b>
+            <p>{{product.features}}</p>
+            <form action="{{url_for('commitBuild',build_id=build_id)}}" method="post">
+                  <input type="hidden" name="cpu_id" value="{{product.id}}">
+                  <button type="submit" class="btn btn-sm btn-warning float-right">submit</button>
+                  <input type="hidden" name="quantity" value="1" min="1" max="20">
+
+              </form>
+        
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12" id="s_image">
+            <img src="{{url_for('static',filename='images/'+ product.image_1)}}" alt="{{product.name}}" width="100" height="100">
+        </div>
+    </div>
+   
+</div>
+
+
+{% endblock content %}
